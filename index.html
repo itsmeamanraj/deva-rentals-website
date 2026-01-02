@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Deva rentals" />
+
+    <title>Deva Rentals | Find your best home</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+        /* Default transparent */
+        .navbar-scroll {
+            background-color: transparent;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* When scrolled */
+        .navbar-scroll.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="mainNavbar" class="position-fixed top-0 start-0 end-0 navbar-scroll bg-transparent"
+        style="transition: all 0.3s ease; z-index:1050;">
+
+        <div class="container-xl px-4">
+            <div class="d-flex align-items-center justify-content-between" style="height:80px;">
+
+                <!-- LEFT: Logo -->
+                <div class="d-flex align-items-center" style="width:140px;">
+                    <img src="assets/image/deva-logo.png" alt="Deva Rentals Logo"
+                        style="width:110px; height:110px; object-fit:contain;">
+                </div>
+
+                <!-- CENTER: Mobile CTA (ONLY MOBILE) -->
+                <button
+                    class="d-md-none h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors"
+                    style="font-size:12px;">
+                    View Properties
+                </button>
+
+                <!-- RIGHT: Hamburger (ONLY MOBILE) -->
+                <button id="mobileMenuToggle" class="btn d-md-none p-2 rounded-lg" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 12h16" />
+                        <path d="M4 18h16" />
+                        <path d="M4 6h16" />
+                    </svg>
+                </button>
+
+                <!-- DESKTOP MENU -->
+                <div class="d-none d-md-flex align-items-center gap-4">
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#about"
+                        class="text-muted-foreground hover:text-primary">About Us</a></button>
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#properties"
+                        class="text-muted-foreground hover:text-primary">Available
+                        Properties</a></button>
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#landlords"
+                        class="text-muted-foreground hover:text-primary">For Landlords</a></button>
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#tenants"
+                        class="text-muted-foreground hover:text-primary">For Tenants</a></button>
+
+                    <button
+                        class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors"
+                        style="font-size:14px;">
+                        View Properties
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="d-md-none position-absolute start-0 end-0 bg-white shadow border-top"
+            style="top:80px; display:none; z-index:1040;">
+
+            <div class="d-flex flex-column gap-3 px-3 py-4">
+
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#about"
+                        class="text-muted-foreground hover:text-primary">About Us</a></button>
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#properties"
+                        class="text-muted-foreground hover:text-primary">Available
+                        Properties</a></button>
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#landlords"
+                        class="text-muted-foreground hover:text-primary">For Landlords</a></button>
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#tenants"
+                        class="text-muted-foreground hover:text-primary">For Tenants</a></button>
+    </nav>
+
+
+
+    <section class="relative min-h-screen d-flex align-items-center justify-content-center overflow-hidden pt-20">
+
+        <!-- Background (UNCHANGED) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-muted via-background to-muted z-0"></div>
+
+        <!-- Floating blobs (UNCHANGED) -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float"
+            style="animation-delay:1s;"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 container-xl px-4 py-5">
+            <div class="text-center mx-auto" style="max-width:1140px;">
+
+                <!-- Badge (BACKGROUND CLASSES KEPT) -->
+                <div
+                    class="d-inline-flex align-items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm animate-fade-in">
+                    <span class="fw-medium text-primary" style="font-size:14px;">
+                        8+ Years of Excellence in Edmonton
+                    </span>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="fw-bold animate-fade-in" style="font-size:clamp(3rem,6vw,4.5rem); line-height:1.1;">
+                    Find the Perfect Property for Your
+                    <span class="d-block mt-2 text-gradient-gold">Lifestyle</span>
+                </h1>
+
+                <!-- Subtext -->
+                <p class="text-muted-foreground mx-auto animate-fade-in"
+                    style="max-width:600px; font-size:1.15rem; animation-delay:0.2s;" style="margin-bottom: 14px;;">
+                    Transform your rental experience with Edmonton's most trusted property
+                    management company. Premium properties, exceptional service.
+                </p>
+
+                <!-- Search Card (BACKGROUND CLASS KEPT) -->
+                <div class="bg-card rounded-2xl pt-3 shadow-elegant p-4 p-sm-5 mx-auto animate-fade-in"
+                    style="max-width:1000px; animation-delay:0.4s;">
+
+                    <div class="row g-3">
+
+                        <!-- Location -->
+                        <div class="col-12 col-sm-6 col-lg-3 position-relative">
+                            <button
+                                class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors">
+                                Landlord Inquiry
+                            </button>
+                        </div>
+
+                        <!-- Property Type -->
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <button
+                                class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors">
+                                Schedule Viewing
+                            </button>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <button
+                                class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors">
+                                Rental Application
+                            </button>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <button
+                                class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors">
+                                Service Request
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="row pt-5 animate-fade-in" style="animation-delay:0.6s;">
+                    <div class="col-4 text-center">
+                        <div class="text-4xl fw-bold text-primary">500+</div>
+                        <div class="text-sm text-muted-foreground mt-1">Properties Managed</div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="text-4xl fw-bold text-primary">98%</div>
+                        <div class="text-sm text-muted-foreground mt-1">Client Satisfaction</div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <div class="text-4xl fw-bold text-primary">8+</div>
+                        <div class="text-sm text-muted-foreground mt-1">Years Experience</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gradient-to-b from-background to-muted">
+        <div class="container-xl px-4">
+
+            <div class="row g-5 align-items-center">
+
+                <!-- Left Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="d-flex flex-column gap-4">
+
+                        <div
+                            class="d-inline-flex align-items-center px-4 py-2 rounded-pill bg-primary/10 border border-primary/20 w-auto align-self-start">
+                            <span class="text-primary fw-medium small">
+                                A Certified Company
+                            </span>
+                        </div>
+
+                        <h2 class="fw-bold" style="font-size:clamp(2.5rem,5vw,3rem); line-height:1.1;">
+                            What We Are
+                            <span class="d-block mt-2 text-gradient-gold">About</span>
+                        </h2>
+
+                        <p class="fs-5 text-muted-foreground">
+                            <span class="fw-semibold text-foreground">
+                                Transform your Edmonton rental property into a stress-free investment.
+                            </span>
+                        </p>
+
+                        <p class="text-muted-foreground">
+                            For 8+ years, Deva Rentals has delivered rock-solid results for property
+                            owners across Edmonton. We attack vacancy problems head-on, streamline
+                            rent collection, and jump on maintenance issues before they escalate.
+                        </p>
+
+                        <p class="text-muted-foreground">
+                            From single-family homes to condos and apartments, we don't just manage
+                            properties—we maximize your investment and protect your peace of mind.
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Right Cards -->
+                <div class="col-12 col-lg-6">
+                    <div class="row g-4">
+
+                        <!-- Card 1 -->
+                        <div class="col-6">
+                            <div
+                                class="rounded-xl border bg-card shadow transition-all duration-300 hover:shadow-gold hover:-translate-y-1 h-100">
+                                <div class="p-4 d-flex flex-column align-items-center text-center gap-3">
+                                    <div class="rounded-circle bg-primary/10 d-flex align-items-center justify-content-center"
+                                        style="width:64px; height:64px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+                                            stroke="currentColor" stroke-width="2" class="text-primary">
+                                            <path
+                                                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-semibold text-foreground mb-2">
+                                            Licensed & Certified
+                                        </h3>
+                                        <p class="text-muted-foreground small mb-0">
+                                            Fully licensed property management company in Edmonton
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="col-6">
+                            <div
+                                class="rounded-xl border bg-card shadow transition-all duration-300 hover:shadow-gold hover:-translate-y-1 h-100">
+                                <div class="p-4 d-flex flex-column align-items-center text-center gap-3">
+                                    <div class="rounded-circle bg-primary/10 d-flex align-items-center justify-content-center"
+                                        style="width:64px; height:64px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+                                            stroke="currentColor" stroke-width="2" class="text-primary">
+                                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                                            <polyline points="16 7 22 7 22 13" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-semibold text-foreground mb-2">
+                                            Maximize ROI
+                                        </h3>
+                                        <p class="text-muted-foreground small mb-0">
+                                            Expert strategies to boost your rental income
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="col-6">
+                            <div
+                                class="rounded-xl border bg-card shadow transition-all duration-300 hover:shadow-gold hover:-translate-y-1 h-100">
+                                <div class="p-4 d-flex flex-column align-items-center text-center gap-3">
+                                    <div class="rounded-circle bg-primary/10 d-flex align-items-center justify-content-center"
+                                        style="width:64px; height:64px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+                                            stroke="currentColor" stroke-width="2" class="text-primary">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                            <circle cx="9" cy="7" r="4" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-semibold text-foreground mb-2">
+                                            Happy Tenants
+                                        </h3>
+                                        <p class="text-muted-foreground small mb-0">
+                                            Proven tenant screening and satisfaction methods
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="col-6">
+                            <div
+                                class="rounded-xl border bg-card shadow transition-all duration-300 hover:shadow-gold hover:-translate-y-1 h-100">
+                                <div class="p-4 d-flex flex-column align-items-center text-center gap-3">
+                                    <div class="rounded-circle bg-primary/10 d-flex align-items-center justify-content-center"
+                                        style="width:64px; height:64px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+                                            stroke="currentColor" stroke-width="2" class="text-primary">
+                                            <circle cx="12" cy="8" r="6" />
+                                            <path
+                                                d="m15.477 12.89 1.515 8.526-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686 1.514-8.526" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-semibold text-foreground mb-2">
+                                            8+ Years
+                                        </h3>
+                                        <p class="text-muted-foreground small mb-0">
+                                            Delivering exceptional results since 2016
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-muted">
+        <div class="container-xl px-4">
+
+            <!-- Intro -->
+            <div class="text-center mx-auto mb-5" style="max-width:768px;">
+                <h2 class="fw-bold mb-4" style="font-size:clamp(2.5rem,5vw,3rem); line-height:1.1;">
+                    Why Deva
+                    <span class="d-block mt-2 text-gradient-gold">Rentals</span>
+                </h2>
+
+                <p class="text-muted-foreground fw-semibold mb-4" style="font-size:1.125rem;">
+                    Stop struggling with these landlord nightmares
+                </p>
+
+                <div class="bg-card rounded-xl p-4 shadow-elegant text-start">
+
+                    <div class="d-flex align-items-start gap-3 mb-2">
+                        <div class="rounded-circle bg-destructive mt-2" style="width:6px; height:6px;"></div>
+                        <p class="text-muted-foreground mb-0">
+                            High tenant turnover that destroys your rental income
+                        </p>
+                    </div>
+
+                    <div class="d-flex align-items-start gap-3 mb-2">
+                        <div class="rounded-circle bg-destructive mt-2" style="width:6px; height:6px;"></div>
+                        <p class="text-muted-foreground mb-0">
+                            Delayed repairs that frustrate good tenants and cost more money
+                        </p>
+                    </div>
+
+                    <div class="d-flex align-items-start gap-3 mb-2">
+                        <div class="rounded-circle bg-destructive mt-2" style="width:6px; height:6px;"></div>
+                        <p class="text-muted-foreground mb-0">
+                            Unreliable contractors who overcharge and underdeliver
+                        </p>
+                    </div>
+
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="rounded-circle bg-destructive mt-2" style="width:6px; height:6px;"></div>
+                        <p class="text-muted-foreground mb-0">
+                            Complex rental laws that put you at risk
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Transition Text -->
+            <div class="mb-5 text-center">
+                <p class="fw-semibold text-foreground" style="font-size:1.25rem;">
+                    Our licensed property management company in Edmonton crushes these problems:
+                </p>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="row g-4">
+
+                <!-- Card -->
+                <div class="col-12 col-md-6">
+                    <div
+                        class="rounded-xl border bg-card shadow transition-all duration-300 hover:shadow-gold hover:-translate-y-1">
+                        <div class="p-4 p-lg-5 d-flex align-items-start gap-4">
+                            <div class="rounded-xl bg-primary/10 d-flex align-items-center justify-content-center"
+                                style="width:56px; height:56px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline>
+                                    <polyline points="16 17 22 17 22 11"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-foreground fw-semibold mb-2" style="font-size:1.25rem;">
+                                    Slash Vacancy Rates
+                                </h3>
+                                <p class="text-muted-foreground mb-0">
+                                    Proven marketing strategies that fill your properties fast and keep them occupied
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+                <div class="col-12 col-md-6">
+                    <div
+                        class="rounded-xl border bg-card shadow transition-all duration-300 hover:shadow-gold hover:-translate-y-1">
+                        <div class="p-4 p-lg-5 d-flex align-items-start gap-4">
+                            <div class="rounded-xl bg-primary/10 d-flex align-items-center justify-content-center"
+                                style="width:56px; height:56px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-accent">
+                                    <polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline>
+                                    <polyline points="16 17 22 17 22 11"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-foreground fw-semibold mb-2" style="font-size:1.25rem;">
+                                    Boost Your ROI
+                                </h3>
+                                <p class="text-muted-foreground mb-0">
+                                    Expert tenant management and pricing strategies maximize your rental income
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+                <div class="col-12 col-md-6">
+                    <div
+                        class="rounded-xl border bg-card shadow transition-all duration-300 hover:shadow-gold hover:-translate-y-1">
+                        <div class="p-4 p-lg-5 d-flex align-items-start gap-4">
+                            <div class="rounded-xl bg-primary/10 d-flex align-items-center justify-content-center"
+                                style="width:56px; height:56px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-secondary">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-foreground fw-semibold mb-2" style="font-size:1.25rem;">
+                                    Fast Maintenance Response
+                                </h3>
+                                <p class="text-muted-foreground mb-0">
+                                    Trusted vendor network ensures repairs are handled quickly and affordably
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+                <div class="col-12 col-md-6">
+                    <div
+                        class="rounded-xl border bg-card shadow transition-all duration-300 hover:shadow-gold hover:-translate-y-1">
+                        <div class="p-4 p-lg-5 d-flex align-items-start gap-4">
+                            <div class="rounded-xl bg-primary/10 d-flex align-items-center justify-content-center"
+                                style="width:56px; height:56px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <path d="m16 16 3-8 3 8"></path>
+                                    <path d="m2 16 3-8 3 8"></path>
+                                    <path d="M7 21h10"></path>
+                                    <path d="M12 3v18"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-foreground fw-semibold mb-2" style="font-size:1.25rem;">
+                                    Legal Compliance
+                                </h3>
+                                <p class="text-muted-foreground mb-0">
+                                    Stay bulletproof with Alberta rental law compliance and expert guidance
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Closing -->
+            <div class="mt-5 text-center">
+                <p class="fw-semibold text-foreground" style="font-size:1.25rem;">
+                    We don't just manage—we
+                    <span class="text-primary"> supercharge </span>
+                    your rental property investment.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="properties" class="py-20 bg-background">
+        <div class="container-xl px-4">
+
+            <!-- Header -->
+            <div class="text-center mx-auto mb-5" style="max-width:768px;">
+                <h2 class="fw-bold mb-4" style="font-size:clamp(2.5rem,5vw,3rem); line-height:1.1;">
+                    Featured
+                    <span class="d-block mt-2 text-gradient-gold">Properties</span>
+                </h2>
+                <p class="text-muted-foreground fs-5">
+                    Discover premium rental properties across Edmonton. From downtown condos
+                    to family homes in sought-after neighborhoods.
+                </p>
+            </div>
+
+            <!-- Property Grid -->
+            <div class="row g-4">
+
+                <!-- Property Card -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div
+                        class="rounded-xl border bg-card shadow overflow-hidden transition-all duration-300 hover:shadow-gold hover:-translate-y-2">
+
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop"
+                                alt="Luxury Downtown Condo"
+                                class="w-100 object-cover transition-transform duration-500 hover:scale-110"
+                                style="height:224px;">
+
+                            <span
+                                class="position-absolute top-0 start-0 mt-3 ms-3 px-2.5 py-0.5 text-xs fw-semibold bg-primary text-primary-foreground rounded-md shadow-gold">
+                                Featured
+                            </span>
+
+                            <button
+                                class="position-absolute top-0 end-0 mt-3 me-3 rounded-circle bg-background/90 d-flex align-items-center justify-content-center"
+                                style="width:40px; height:40px;">
+                                ❤️
+                            </button>
+                        </div>
+
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-xs fw-semibold border rounded-md px-2.5 py-0.5">
+                                    Condo
+                                </span>
+                                <span class="fs-4 fw-bold text-primary">
+                                    $1,850/mo
+                                </span>
+                            </div>
+
+                            <h3 class="fw-semibold text-foreground mb-1">
+                                Luxury Downtown Condo
+                            </h3>
+                            <p class="text-muted-foreground small mb-3">
+                                📍 Downtown Edmonton
+                            </p>
+
+                            <div
+                                class="d-flex justify-content-between small text-muted-foreground border-top pt-3 mb-3">
+                                <span>2 Beds</span>
+                                <span>2 Baths</span>
+                                <span>1200 sqft</span>
+                            </div>
+
+                            <button
+                                class="w-100 h-9 border border-primary/50 rounded-md hover:bg-primary hover:text-primary-foreground transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repeat other cards with same structure -->
+
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-5">
+                <button
+                    class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors">
+                    View All Properties
+                </button>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="landlords" class="py-20 bg-gradient-to-b from-muted to-background">
+        <div class="container-xl px-4">
+
+            <div class="row g-5 align-items-center">
+
+                <!-- Left Content -->
+                <div class="col-12 col-lg-6 order-1">
+                    <div class="d-flex flex-column gap-4">
+
+                        <h2 class="fw-bold" style="font-size:clamp(2.5rem,5vw,3rem); line-height:1.1;">
+                            For
+                            <span class="d-block mt-2 text-gradient-gold">Landlords</span>
+                        </h2>
+
+                        <p class="fs-5 fw-semibold text-foreground">
+                            Managing property shouldn't feel like a full-time job.
+                        </p>
+
+                        <p class="text-muted-foreground">
+                            At Deva Rentals, we offer a full-service solution that maximizes your
+                            rental income while eliminating the daily stress. Our comprehensive
+                            services include:
+                        </p>
+
+                        <!-- Services List -->
+                        <div class="d-flex flex-column gap-3">
+
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="rounded-lg bg-primary/10 d-flex align-items-center justify-content-center"
+                                    style="width:48px; height:48px;">
+                                    👤
+                                </div>
+                                <div>
+                                    <h3 class="fw-semibold text-foreground mb-1">
+                                        Tenant Screening & Leasing
+                                    </h3>
+                                    <p class="text-muted-foreground small mb-0">
+                                        We find qualified tenants, manage showings, and handle all contracts
+                                        professionally
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="rounded-lg bg-primary/10 d-flex align-items-center justify-content-center"
+                                    style="width:48px; height:48px;">
+                                    📄
+                                </div>
+                                <div>
+                                    <h3 class="fw-semibold text-foreground mb-1">
+                                        Rent Collection & Reports
+                                    </h3>
+                                    <p class="text-muted-foreground small mb-0">
+                                        Automated rent tracking with detailed monthly financial updates and analytics
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="rounded-lg bg-primary/10 d-flex align-items-center justify-content-center"
+                                    style="width:48px; height:48px;">
+                                    🔧
+                                </div>
+                                <div>
+                                    <h3 class="fw-semibold text-foreground mb-1">
+                                        Maintenance & Repairs
+                                    </h3>
+                                    <p class="text-muted-foreground small mb-0">
+                                        Prompt service by trusted in-house and partner teams for all property needs
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="pt-3">
+                            <p class="text-muted-foreground fst-italic mb-4">
+                                We treat your property with the care it deserves, and deliver the returns you expect.
+                            </p>
+                            <button
+                                class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors">
+                                Get Started Today
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Cards -->
+                <div class="col-12 col-lg-6 order-2">
+                    <div class="row g-3">
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 p-4 h-100">
+                                <h3 class="fw-semibold text-foreground mb-2">
+                                    Tenant Screening & Leasing
+                                </h3>
+                                <p class="text-muted-foreground small mb-0">
+                                    Professional tenant placement and lease handling
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 p-4 h-100">
+                                <h3 class="fw-semibold text-foreground mb-2">
+                                    Rent Collection & Reports
+                                </h3>
+                                <p class="text-muted-foreground small mb-0">
+                                    Transparent reporting and on-time payments
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 p-4 h-100">
+                                <h3 class="fw-semibold text-foreground mb-2">
+                                    Maintenance & Repairs
+                                </h3>
+                                <p class="text-muted-foreground small mb-0">
+                                    Fast response and trusted contractors
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 p-4 h-100">
+                                <h3 class="fw-semibold text-foreground mb-2">
+                                    Legal Compliance
+                                </h3>
+                                <p class="text-muted-foreground small mb-0">
+                                    Full compliance with Alberta rental regulations
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 p-4 h-100">
+                                <h3 class="fw-semibold text-foreground mb-2">
+                                    Marketing & Vacancy Management
+                                </h3>
+                                <p class="text-muted-foreground small mb-0">
+                                    Strategic listings that fill properties fast
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 p-4 h-100">
+                                <h3 class="fw-semibold text-foreground mb-2">
+                                    Property Inspections
+                                </h3>
+                                <p class="text-muted-foreground small mb-0">
+                                    Regular inspections to protect your investment
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="tenants" class="py-20 bg-background">
+        <div class="container-xl px-4">
+
+            <div class="row g-5 align-items-center">
+
+                <!-- Left Cards -->
+                <div class="col-12 col-lg-6">
+                    <div class="row g-3">
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 h-100">
+                                <div class="p-4 d-flex flex-column h-100">
+                                    <div class="rounded-xl bg-accent/10 d-flex align-items-center justify-content-center mb-3"
+                                        style="width:56px; height:56px;">
+                                        ⚡
+                                    </div>
+                                    <h3 class="fw-semibold text-foreground mb-2">
+                                        Lightning-Fast Maintenance
+                                    </h3>
+                                    <p class="text-muted-foreground small mb-0">
+                                        Report issues and get rapid response from our dedicated maintenance team
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 h-100">
+                                <div class="p-4 d-flex flex-column h-100">
+                                    <div class="rounded-xl bg-accent/10 d-flex align-items-center justify-content-center mb-3"
+                                        style="width:56px; height:56px;">
+                                        💬
+                                    </div>
+                                    <h3 class="fw-semibold text-foreground mb-2">
+                                        Straight-Talk Communication
+                                    </h3>
+                                    <p class="text-muted-foreground small mb-0">
+                                        Clear, honest communication you can count on—no runaround, ever
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 h-100">
+                                <div class="p-4 d-flex flex-column h-100">
+                                    <div class="rounded-xl bg-accent/10 d-flex align-items-center justify-content-center mb-3"
+                                        style="width:56px; height:56px;">
+                                        🏠
+                                    </div>
+                                    <h3 class="fw-semibold text-foreground mb-2">
+                                        Quality Properties
+                                    </h3>
+                                    <p class="text-muted-foreground small mb-0">
+                                        Well-maintained homes in neighborhoods you’ll love
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div
+                                class="rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-1 h-100">
+                                <div class="p-4 d-flex flex-column h-100">
+                                    <div class="rounded-xl bg-accent/10 d-flex align-items-center justify-content-center mb-3"
+                                        style="width:56px; height:56px;">
+                                        🤝
+                                    </div>
+                                    <h3 class="fw-semibold text-foreground mb-2">
+                                        Fair & Honest Dealings
+                                    </h3>
+                                    <p class="text-muted-foreground small mb-0">
+                                        Transparent processes and fair treatment every step of the way
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="d-flex flex-column gap-4">
+
+                        <h2 class="fw-bold" style="font-size:clamp(2.5rem,5vw,3rem); line-height:1.1;">
+                            For
+                            <span class="d-block mt-2 text-gradient-gold">Tenants</span>
+                        </h2>
+
+                        <p class="fs-5 fw-semibold text-foreground">
+                            Experience responsive rental management for homes in Edmonton.
+                        </p>
+
+                        <p class="text-muted-foreground">
+                            Tired of unresponsive property managers who ignore maintenance problems?
+                            We put tenant satisfaction first.
+                        </p>
+
+                        <div class="bg-card rounded-xl p-4 shadow-elegant">
+                            <h3 class="fw-semibold text-foreground mb-3">
+                                What makes us different:
+                            </h3>
+                            <ul class="text-muted-foreground mb-0 ps-3">
+                                <li>Lightning-Fast Maintenance</li>
+                                <li>Straight-Talk Communication</li>
+                                <li>Quality Properties</li>
+                                <li>Fair & Honest Dealings</li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-3">
+                            <p class="text-muted-foreground fst-italic mb-4">
+                                Sleep soundly knowing you’re renting from Edmonton’s most responsive
+                                property management team.
+                            </p>
+                            <button
+                                class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors">
+                                Rental Application
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-muted">
+        <div class="container-xl px-4">
+
+            <div class="text-center mb-5">
+                <h3 class="fs-4 fw-semibold text-foreground mb-2">
+                    We proudly partner or are affiliated with the following organizations:
+                </h3>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- Partner 1 -->
+                <div class="col-12 col-md-4">
+                    <div
+                        class="rounded-xl border bg-card shadow hover:shadow-elegant transition-all duration-300 h-100">
+                        <div class="p-5 d-flex flex-column align-items-center justify-content-center gap-3">
+                            <div class="w-100 d-flex align-items-center justify-content-center" style="height:80px;">
+                                <img src="assets/image/alberta.webp" alt="RECA"
+                                    class="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                                    style="max-height:64px;">
+                            </div>
+                            <div class="text-center">
+                                <h4 class="fw-semibold text-foreground mb-1">RECA</h4>
+                                <p class="text-muted-foreground small mb-0">
+                                    Real Estate Council of Alberta
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partner 2 -->
+                <div class="col-12 col-md-4">
+                    <div
+                        class="rounded-xl border bg-card shadow hover:shadow-elegant transition-all duration-300 h-100">
+                        <div class="p-5 d-flex flex-column align-items-center justify-content-center gap-3">
+                            <div class="w-100 d-flex align-items-center justify-content-center" style="height:80px;">
+                                <img src="assets/image/maxwell.webp" alt="CPMA"
+                                    class="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                                    style="max-height:64px;">
+                            </div>
+                            <div class="text-center">
+                                <h4 class="fw-semibold text-foreground mb-1">CPMA</h4>
+                                <p class="text-muted-foreground small mb-0">
+                                    Canadian Property Management Association
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partner 3 -->
+                <div class="col-12 col-md-4">
+                    <div
+                        class="rounded-xl border bg-card shadow hover:shadow-elegant transition-all duration-300 h-100">
+                        <div class="p-5 d-flex flex-column align-items-center justify-content-center gap-3">
+                            <div class="w-100 d-flex align-items-center justify-content-center" style="height:80px;">
+                                <img src="assets/image/buildium.svg" alt="Buildium"
+                                    class="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                                    style="max-height:64px;">
+                            </div>
+                            <div class="text-center">
+                                <h4 class="fw-semibold text-foreground mb-1">Buildium</h4>
+                                <p class="text-muted-foreground small mb-0">
+                                    Property Management Software
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-b from-background to-muted">
+        <div class="container-xl px-4">
+
+            <!-- Header -->
+            <div class="text-center mx-auto mb-5" style="max-width:768px;">
+                <h2 class="fw-bold mb-4" style="font-size:clamp(2.5rem,5vw,3rem); line-height:1.1;">
+                    What Our Happy Clients
+                    <span class="d-block mt-2 text-gradient-gold">Are Saying</span>
+                </h2>
+                <p class="text-muted-foreground fs-5">
+                    Discover the experiences of homeowners and tenants who trust us with their property needs.
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="row g-4">
+
+                <!-- Testimonial 1 -->
+                <div class="col-12 col-md-4">
+                    <div
+                        class="position-relative overflow-hidden rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-2 h-100">
+
+                        <div class="position-absolute top-0 end-0 mt-4 me-4 opacity-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none"
+                                stroke="currentColor" stroke-width="2" class="text-primary">
+                                <path
+                                    d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                                <path
+                                    d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                            </svg>
+                        </div>
+
+                        <div class="p-5 position-relative z-1 d-flex flex-column h-100">
+                            <div class="mb-3">
+                                <span class="text-primary">★★★★★</span>
+                            </div>
+
+                            <p class="text-muted-foreground mb-4">
+                                "Deva Rentals transformed my investment experience. Their team is professional,
+                                responsive, and truly cares about maximizing returns. My properties stay occupied
+                                with quality tenants."
+                            </p>
+
+                            <div class="mt-auto pt-4 border-top border-border d-flex align-items-center gap-3">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="Michael Thompson"
+                                    class="rounded-circle object-cover" style="width:48px; height:48px;">
+                                <div>
+                                    <h4 class="fw-semibold text-foreground mb-0">Michael Thompson</h4>
+                                    <p class="text-muted-foreground small mb-0">Property Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-12 col-md-4">
+                    <div
+                        class="position-relative overflow-hidden rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-2 h-100">
+
+                        <div class="position-absolute top-0 end-0 mt-4 me-4 opacity-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none"
+                                stroke="currentColor" stroke-width="2" class="text-primary">
+                                <path
+                                    d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                                <path
+                                    d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                            </svg>
+                        </div>
+
+                        <div class="p-5 position-relative z-1 d-flex flex-column h-100">
+                            <div class="mb-3">
+                                <span class="text-primary">★★★★★</span>
+                            </div>
+
+                            <p class="text-muted-foreground mb-4">
+                                "Best rental experience I’ve ever had! Maintenance requests are handled within
+                                hours, communication is clear, and the team genuinely cares."
+                            </p>
+
+                            <div class="mt-auto pt-4 border-top border-border d-flex align-items-center gap-3">
+                                <img src="https://i.pravatar.cc/150?img=45" alt="Sarah Mitchell"
+                                    class="rounded-circle object-cover" style="width:48px; height:48px;">
+                                <div>
+                                    <h4 class="fw-semibold text-foreground mb-0">Sarah Mitchell</h4>
+                                    <p class="text-muted-foreground small mb-0">Tenant</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="col-12 col-md-4">
+                    <div
+                        class="position-relative overflow-hidden rounded-xl border bg-card shadow hover:shadow-gold transition-all duration-300 hover:-translate-y-2 h-100">
+
+                        <div class="position-absolute top-0 end-0 mt-4 me-4 opacity-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none"
+                                stroke="currentColor" stroke-width="2" class="text-primary">
+                                <path
+                                    d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                                <path
+                                    d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                            </svg>
+                        </div>
+
+                        <div class="p-5 position-relative z-1 d-flex flex-column h-100">
+                            <div class="mb-3">
+                                <span class="text-primary">★★★★★</span>
+                            </div>
+
+                            <p class="text-muted-foreground mb-4">
+                                "After years of vacancy issues, Deva Rentals filled my property in under two
+                                weeks. Their marketing works and reporting gives complete peace of mind."
+                            </p>
+
+                            <div class="mt-auto pt-4 border-top border-border d-flex align-items-center gap-3">
+                                <img src="https://i.pravatar.cc/150?img=33" alt="Robert Chen"
+                                    class="rounded-circle object-cover" style="width:48px; height:48px;">
+                                <div>
+                                    <h4 class="fw-semibold text-foreground mb-0">Robert Chen</h4>
+                                    <p class="text-muted-foreground small mb-0">Property Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-muted">
+        <div class="container-xl px-4">
+
+            <!-- Header -->
+            <div class="text-center mx-auto mb-5" style="max-width:768px;">
+                <h2 class="fw-bold mb-4" style="font-size:clamp(2.5rem,5vw,3rem); line-height:1.1;">
+                    Ready to experience
+                    <span class="d-block mt-2 text-gradient-gold">
+                        stress-free property management?
+                    </span>
+                </h2>
+                <p class="text-muted-foreground fs-5">
+                    Whether you're a property owner ready to maximize returns or a tenant searching
+                    for your perfect Edmonton home, let's talk.
+                </p>
+            </div>
+
+            <div class="row g-5 align-items-start">
+
+                <!-- Contact Form -->
+                <div class="col-12 col-lg-6">
+                    <div class="rounded-xl border bg-card shadow shadow-elegant">
+                        <div class="p-5">
+                            <form class="d-flex flex-column gap-4">
+
+                                <div>
+                                    <label for="name" class="form-label fw-medium">Full Name *</label>
+                                    <input id="name" type="text" placeholder="John Doe"
+                                        class="form-control h-12 border-input bg-transparent text-sm">
+                                </div>
+
+                                <div>
+                                    <label for="email" class="form-label fw-medium">Email Address *</label>
+                                    <input id="email" type="email" placeholder="john@example.com"
+                                        class="form-control h-12 border-input bg-transparent text-sm">
+                                </div>
+
+                                <div>
+                                    <label for="phone" class="form-label fw-medium">Phone Number</label>
+                                    <input id="phone" type="tel" placeholder="(780) 555-0123"
+                                        class="form-control h-12 border-input bg-transparent text-sm">
+                                </div>
+
+                                <div>
+                                    <label for="message" class="form-label fw-medium">Message *</label>
+                                    <textarea id="message" rows="5"
+                                        placeholder="Tell us about your property management needs..."
+                                        class="form-control border-input bg-transparent text-sm"></textarea>
+                                </div>
+
+
+                                <button
+                                    class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors">
+                                    Get Started Today
+                                </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-12 col-lg-6">
+                    <div class="d-flex flex-column gap-5">
+
+                        <div>
+                            <h3 class="fs-3 fw-bold mb-3">Get in Touch</h3>
+                            <p class="text-muted-foreground">
+                                Have questions about our services? Want to discuss your property management
+                                needs? Our team is here to help you every step of the way.
+                            </p>
+                        </div>
+
+                        <div class="d-flex flex-column gap-4">
+
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="rounded-xl bg-primary/10 d-flex align-items-center justify-content-center"
+                                    style="width:48px; height:48px;">📧</div>
+                                <div>
+                                    <h4 class="fw-semibold mb-1">Email Us</h4>
+                                    <p class="text-muted-foreground mb-0">info@devarentals.com</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="rounded-xl bg-primary/10 d-flex align-items-center justify-content-center"
+                                    style="width:48px; height:48px;">📞</div>
+                                <div>
+                                    <h4 class="fw-semibold mb-1">Call Us</h4>
+                                    <p class="text-muted-foreground mb-0">(780) 555-0123</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="rounded-xl bg-primary/10 d-flex align-items-center justify-content-center"
+                                    style="width:48px; height:48px;">📍</div>
+                                <div>
+                                    <h4 class="fw-semibold mb-1">Visit Us</h4>
+                                    <p class="text-muted-foreground mb-0">Edmonton, Alberta</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Office Hours -->
+                        <div
+                            class="rounded-xl border border-primary/20 bg-gradient-to-br from-primary/10 to-secondary/10">
+                            <div class="p-4">
+                                <h4 class="fw-semibold mb-2">Office Hours</h4>
+                                <div class="text-muted-foreground small">
+                                    <p class="mb-1">Monday – Friday: 9:00 AM – 6:00 PM</p>
+                                    <p class="mb-1">Saturday: 10:00 AM – 4:00 PM</p>
+                                    <p class="mb-0">Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gradient-to-b from-background to-muted border-top border-border">
+
+        <div class="container-xl px-4 py-5">
+
+            <div class="row g-5">
+
+                <!-- Brand -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="d-flex flex-column gap-3">
+
+                        <div class="d-flex align-items-center" style="width:140px;">
+                            <img src="assets/image/deva-logo.png" alt="Deva Rentals Logo"
+                                style="width:110px; height:110px; object-fit:contain;">
+                        </div>
+
+                        <p class="text-muted-foreground small">
+                            Edmonton's trusted property management company for over 8 years.
+                            We maximize your investment and protect your peace of mind.
+                        </p>
+
+                        <div class="d-flex gap-3">
+                            <a href="#"
+                                class="rounded-circle bg-primary/10 hover:bg-primary/20 d-flex align-items-center justify-content-center transition-colors"
+                                style="width:40px; height:40px;">
+                                <!-- Facebook -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                </svg>
+                            </a>
+
+                            <a href="#"
+                                class="rounded-circle bg-primary/10 hover:bg-primary/20 d-flex align-items-center justify-content-center transition-colors"
+                                style="width:40px; height:40px;">
+                                <!-- Instagram -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                            </a>
+
+                            <a href="#"
+                                class="rounded-circle bg-primary/10 hover:bg-primary/20 d-flex align-items-center justify-content-center transition-colors"
+                                style="width:40px; height:40px;">
+                                <!-- LinkedIn -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect x="2" y="9" width="4" height="12" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h4 class="fw-semibold text-foreground mb-3">Quick Links</h4>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#about" class="text-muted-foreground hover:text-primary">About Us</a></li>
+                        <li><a href="#properties" class="text-muted-foreground hover:text-primary">Available
+                                Properties</a></li>
+                        <li><a href="#landlords" class="text-muted-foreground hover:text-primary">For Landlords</a></li>
+                        <li><a href="#tenants" class="text-muted-foreground hover:text-primary">For Tenants</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h4 class="fw-semibold text-foreground mb-3">Our Services</h4>
+                    <ul class="list-unstyled text-muted-foreground d-flex flex-column gap-2">
+                        <li>Tenant Screening</li>
+                        <li>Rent Collection</li>
+                        <li>Property Maintenance</li>
+                        <li>Legal Compliance</li>
+                        <li>Marketing & Leasing</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h4 class="fw-semibold text-foreground mb-3">Contact Us</h4>
+                    <ul class="list-unstyled text-muted-foreground d-flex flex-column gap-2">
+                        <li class="d-flex align-items-start gap-2">
+                            <span class="text-primary">📧</span> info@devarentals.com
+                        </li>
+                        <li class="d-flex align-items-start gap-2">
+                            <span class="text-primary">📞</span> (780) 555-0123
+                        </li>
+                        <li class="d-flex align-items-start gap-2">
+                            <span class="text-primary">📍</span> Edmonton, Alberta, Canada
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-top border-border">
+            <div class="container-xl px-4 py-3">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                    <p class="text-muted-foreground small mb-0">
+                        © 2026 Deva Rentals. All rights reserved.
+                    </p>
+                    <div class="d-flex gap-4">
+                        <a href="#" class="text-muted-foreground hover:text-primary small">Privacy Policy</a>
+                        <a href="#" class="text-muted-foreground hover:text-primary small">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar-scroll");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+    <script>
+        document.getElementById("mobileMenuToggle").addEventListener("click", function () {
+            const menu = document.getElementById("mobileMenu");
+            menu.style.display = menu.style.display === "none" || menu.style.display === ""
+                ? "block"
+                : "none";
+        });
+    </script>
+</body>
