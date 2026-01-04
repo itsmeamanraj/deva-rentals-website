@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Deva rentals" />
+
+    <title>Deva Rentals | Find your best home</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+        /* Default transparent */
+        .navbar-scroll {
+            background-color: transparent;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* When scrolled */
+        .navbar-scroll.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="mainNavbar" class="position-fixed top-0 start-0 end-0 navbar-scroll bg-transparent"
+        style="transition: all 0.3s ease; z-index:1050;">
+
+        <div class="container-xl px-4">
+            <div class="d-flex align-items-center justify-content-between" style="height:80px;">
+
+                <!-- LEFT: Logo -->
+                <div class="d-flex align-items-center" style="width:140px;">
+                    <img src="assets/image/deva-logo.png" alt="Deva Rentals Logo"
+                        style="width:110px; height:110px; object-fit:contain;">
+                </div>
+
+                <!-- CENTER: Mobile CTA (ONLY MOBILE) -->
+                <button
+                    class="d-md-none h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors"
+                    style="font-size:12px;">
+                    View Properties
+                </button>
+
+                <!-- RIGHT: Hamburger (ONLY MOBILE) -->
+                <button id="mobileMenuToggle" class="btn d-md-none p-2 rounded-lg" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 12h16" />
+                        <path d="M4 18h16" />
+                        <path d="M4 6h16" />
+                    </svg>
+                </button>
+
+                <!-- DESKTOP MENU -->
+                <div class="d-none d-md-flex align-items-center gap-4">
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#about" class="text-muted-foreground hover:text-primary">About
+                            Us</a></button>
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#properties"
+                            class="text-muted-foreground hover:text-primary">Available
+                            Properties</a></button>
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#landlords"
+                            class="text-muted-foreground hover:text-primary">For Landlords</a></button>
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#tenants" class="text-muted-foreground hover:text-primary">For
+                            Tenants</a></button>
+
+                    <button
+                        class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors"
+                        style="font-size:14px;">
+                        View Properties
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="d-md-none position-absolute start-0 end-0 bg-white shadow border-top"
+            style="top:80px; display:none; z-index:1040;">
+
+            <div class="d-flex flex-column gap-3 px-3 py-4">
+
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#about"
+                        class="text-muted-foreground hover:text-primary">About Us</a></button>
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#properties"
+                        class="text-muted-foreground hover:text-primary">Available
+                        Properties</a></button>
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#landlords"
+                        class="text-muted-foreground hover:text-primary">For Landlords</a></button>
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#tenants"
+                        class="text-muted-foreground hover:text-primary">For Tenants</a></button>
+    </nav>
+
+
+
+    <section class="relative d-flex align-items-center justify-content-center overflow-hidden pt-10"
+        style="min-height:400px;">
+
+        <!-- Background (UNCHANGED) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-muted via-background to-muted z-0"></div>
+
+        <!-- Floating blobs (UNCHANGED) -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float"
+            style="animation-delay:1s;"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 container-xl px-3 py-4">
+            <div class="text-center mx-auto" style="max-width:1140px;">
+
+                <!-- Badge -->
+                <div
+                    class="d-inline-flex align-items-center px-3 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm animate-fade-in">
+                    <span class="fw-medium text-primary" style="font-size:13px;">
+                        8+ Years of Excellence in Edmonton
+                    </span>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="fw-bold mt-3 animate-fade-in" style="font-size:clamp(2rem,5vw,3.5rem); line-height:1.2;">
+                    Service Request
+                </h1>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="p-4 p-lg-5">
+
+            <form method="post" enctype="multipart/form-data">
+                <div class="row g-3">
+
+                <!-- Tenant Name -->
+                <div class="col-md-6">
+                    <label class="form-label">Tenant Name *</label>
+                    <input type="text" class="form-control" placeholder="Tenant Name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-6">
+                    <label class="form-label">Email *</label>
+                    <input type="email" class="form-control" placeholder="Email" required>
+                </div>
+
+                <!-- Cell -->
+                <div class="col-md-6">
+                    <label class="form-label">Cell *</label>
+                    <input type="tel"
+                        class="form-control"
+                        placeholder="Cell"
+                        required
+                        pattern="[0-9()#&amp;+*-=.]+"
+                        title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+                </div>
+
+                <!-- Address -->
+                <div class="col-md-6">
+                    <label class="form-label">Address *</label>
+                    <input type="text" class="form-control" placeholder="Address" required>
+                </div>
+
+                <!-- City -->
+                <div class="col-md-6">
+                    <label class="form-label">City *</label>
+                    <input type="text" class="form-control" placeholder="City" required>
+                </div>
+
+                <!-- Description -->
+                <div class="col-12">
+                    <label class="form-label">Description *</label>
+                    <textarea class="form-control" rows="4" placeholder="Description" required></textarea>
+                </div>
+
+                <!-- Uploads -->
+                <div class="col-12">
+                    <label class="form-label">Upload File/Take Photo or Video</label>
+                    <input type="file" class="form-control" multiple>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Upload File/Take Photo or Video</label>
+                    <input type="file" class="form-control">
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Upload File/Take Photo or Video</label>
+                    <input type="file" class="form-control">
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Upload File/Take Photo or Video</label>
+                    <input type="file" class="form-control">
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Upload File/Take Photo or Video</label>
+                    <input type="file" class="form-control">
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Upload File/Take Photo or Video</label>
+                    <input type="file" class="form-control">
+                </div>
+
+                <!-- Authorization -->
+                <div class="col-12">
+                    <label class="form-label">Authorization *</label>
+                    <div class="mt-2">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="authorization" required>
+                        <label class="form-check-label">
+                        Permission granted to enter the premises in order to make repairs
+                        </label>
+                    </div>
+
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="radio" name="authorization" required>
+                        <label class="form-check-label">
+                        Permission not granted to enter the premises in order to make repairs- please contact prior to entry and 24 hour notice is required
+                        </label>
+                    </div>
+
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="col-12 text-center mt-4">
+                    <button class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors" style="font-size:14px;">
+                         Submit Request
+                    </button>
+                </div>
+
+                </div>
+            </form>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <footer class="bg-gradient-to-b from-background to-muted border-top border-border">
+
+        <div class="container-xl px-4 py-5">
+
+            <div class="row g-5">
+
+                <!-- Brand -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="d-flex flex-column gap-3">
+
+                        <div class="d-flex align-items-center" style="width:140px;">
+                            <img src="assets/image/deva-logo.png" alt="Deva Rentals Logo"
+                                style="width:110px; height:110px; object-fit:contain;">
+                        </div>
+
+                        <p class="text-muted-foreground small">
+                            Edmonton's trusted property management company for over 8 years.
+                            We maximize your investment and protect your peace of mind.
+                        </p>
+
+                        <div class="d-flex gap-3">
+                            <a href="#"
+                                class="rounded-circle bg-primary/10 hover:bg-primary/20 d-flex align-items-center justify-content-center transition-colors"
+                                style="width:40px; height:40px;">
+                                <!-- Facebook -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                </svg>
+                            </a>
+
+                            <a href="#"
+                                class="rounded-circle bg-primary/10 hover:bg-primary/20 d-flex align-items-center justify-content-center transition-colors"
+                                style="width:40px; height:40px;">
+                                <!-- Instagram -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                            </a>
+
+                            <a href="#"
+                                class="rounded-circle bg-primary/10 hover:bg-primary/20 d-flex align-items-center justify-content-center transition-colors"
+                                style="width:40px; height:40px;">
+                                <!-- LinkedIn -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect x="2" y="9" width="4" height="12" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h4 class="fw-semibold text-foreground mb-3">Quick Links</h4>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#about" class="text-muted-foreground hover:text-primary">About Us</a></li>
+                        <li><a href="#properties" class="text-muted-foreground hover:text-primary">Available
+                                Properties</a></li>
+                        <li><a href="#landlords" class="text-muted-foreground hover:text-primary">For Landlords</a></li>
+                        <li><a href="#tenants" class="text-muted-foreground hover:text-primary">For Tenants</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h4 class="fw-semibold text-foreground mb-3">Our Services</h4>
+                    <ul class="list-unstyled text-muted-foreground d-flex flex-column gap-2">
+                        <li>Tenant Screening</li>
+                        <li>Rent Collection</li>
+                        <li>Property Maintenance</li>
+                        <li>Legal Compliance</li>
+                        <li>Marketing & Leasing</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h4 class="fw-semibold text-foreground mb-3">Contact Us</h4>
+                    <ul class="list-unstyled text-muted-foreground d-flex flex-column gap-2">
+                        <li class="d-flex align-items-start gap-2">
+                            <span class="text-primary">📧</span> info@devarentals.com
+                        </li>
+                        <li class="d-flex align-items-start gap-2">
+                            <span class="text-primary">📞</span> (780) 555-0123
+                        </li>
+                        <li class="d-flex align-items-start gap-2">
+                            <span class="text-primary">📍</span> Edmonton, Alberta, Canada
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-top border-border">
+            <div class="container-xl px-4 py-3">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                    <p class="text-muted-foreground small mb-0">
+                        © 2026 Deva Rentals. All rights reserved.
+                    </p>
+                    <div class="d-flex gap-4">
+                        <a href="#" class="text-muted-foreground hover:text-primary small">Privacy Policy</a>
+                        <a href="#" class="text-muted-foreground hover:text-primary small">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar-scroll");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+    <script>
+        document.getElementById("mobileMenuToggle").addEventListener("click", function () {
+            const menu = document.getElementById("mobileMenu");
+            menu.style.display = menu.style.display === "none" || menu.style.display === ""
+                ? "block"
+                : "none";
+        });
+    </script>
+</body>

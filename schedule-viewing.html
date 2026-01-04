@@ -137,7 +137,7 @@
 
                 <!-- Heading -->
                 <h1 class="fw-bold mt-3 animate-fade-in" style="font-size:clamp(2rem,5vw,3.5rem); line-height:1.2;">
-                    Land Lord Enquiry
+                    Schedule Viewing
                 </h1>
 
             </div>
@@ -148,225 +148,75 @@
     <section class="bg-light">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-10">
+                <div class="col-lg-8">
 
                     <div class="p-4 p-lg-5">
                         <form>
                             <div class="row g-3">
-
-                                <!-- OWNER INFORMATION -->
-                                <div class="form-section-title">Owner Information</div>
-
+                                <!-- FULL NAME -->
                                 <div class="col-md-6">
                                     <label>Full Name *</label>
                                     <input type="text" class="form-control" placeholder="Full Name" required>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label>2nd Owner Full Name</label>
-                                    <input type="text" class="form-control" placeholder="2nd Owner Full Name">
-                                </div>
-
-                                <div class="col-12">
-                                    <p style="font-size:13px;margin-top:-5px;">
-                                        Please provide the full name of the registered landlord as it appears on the property title.
-                                    </p>
-                                </div>
-
+                                <!-- PHONE -->
                                 <div class="col-md-6">
                                     <label>Phone Number *</label>
                                     <input type="tel" class="form-control" placeholder="Phone Number" required>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label>2nd Owner Phone Number</label>
-                                    <input type="tel" class="form-control" placeholder="2nd Owner Phone Number">
-                                </div>
-
+                                <!-- EMAIL -->
                                 <div class="col-md-6">
                                     <label>Email *</label>
                                     <input type="email" class="form-control" placeholder="Email" required>
                                 </div>
 
+                                <!-- ADULTS -->
                                 <div class="col-md-6">
-                                    <label>2nd Owner Email</label>
-                                    <input type="email" class="form-control" placeholder="2nd Owner Email">
+                                    <label>Number of Adults – moving in *</label>
+                                    <input type="number" class="form-control" placeholder="Number of Adults" required>
                                 </div>
 
+                                <!-- KIDS -->
                                 <div class="col-md-6">
-                                    <label>Property Address *</label>
-                                    <input type="text" class="form-control" placeholder="Property Address" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>2nd Property Address</label>
-                                    <input type="text" class="form-control" placeholder="If you have 2nd property, please enter address here">
-                                </div>
-
-                                <!-- PROPERTY DETAILS -->
-                                <div class="form-section-title">Property Details</div>
-
-                                <div class="col-12">
-                                    <label>Property Type *</label>
-                                    <div class="mt-2">
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="ptype" required> <label>Front Attach Garage</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="ptype"> <label>Lane Home (Back Garage)</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="ptype"> <label>Duplex</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="ptype"> <label>Townhouse</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="ptype"> <label>Apartment</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="ptype"> <label>Main Floor</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="ptype"> <label>Basement</label></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Available Date for New Tenants *</label>
-                                    <input type="date" class="form-control" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Rent Expectation (Monthly) *</label>
-                                    <input type="number" class="form-control" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Square Footage *</label>
-                                    <input type="number" class="form-control" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Property Build Year *</label>
-                                    <input type="number" class="form-control" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Number of Bedrooms *</label>
-                                    <select class="form-select" required>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>2+Den</option>
-                                        <option>3</option>
-                                        <option>3+Den</option>
-                                        <option>4</option>
-                                        <option>4+Den</option>
-                                        <option>5</option>
-                                        <option>5+Den</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Specify Other Bedrooms</label>
-                                    <input type="text" class="form-control" placeholder="Number of Bedrooms">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Number of Bathrooms *</label>
-                                    <select class="form-select" required>
-                                        <option>1</option>
-                                        <option>1.5</option>
-                                        <option>2</option>
-                                        <option>2.5</option>
-                                        <option>3</option>
-                                        <option>3.5</option>
-                                        <option>4</option>
-                                        <option>4.5</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Furnishing Type *</label>
-                                    <select class="form-select" required>
-                                        <option>Unfurnished</option>
-                                        <option>Furnished</option>
-                                        <option>Semi Furnished</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Backyard Availability *</label>
-                                    <select class="form-select" required>
-                                        <option>Yes</option>
-                                        <option>No</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Preferred Tenant Lease Term *</label>
-                                    <select class="form-select" required>
-                                        <option>1 Year</option>
-                                        <option>2 Year</option>
-                                        <option>6 Month</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Contract Term Period *</label>
-                                    <select class="form-select" required>
-                                        <option>1 Year</option>
-                                        <option>2 Year</option>
-                                        <option>3 Year</option>
-                                    </select>
+                                    <label>Number of Kids – moving in *</label>
+                                    <input type="number" class="form-control" placeholder="Number of Kids" required>
                                 </div>
 
                                 <!-- PETS -->
-                                <div class="form-section-title">Pets Information</div>
-
-                                <div class="col-12">
-                                    <label>Are Pets Allowed? *</label>
-                                    <div class="mt-2">
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="pets" required> <label>Yes</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="pets"> <label>No</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="pets"> <label>Negotiable</label></div>
-                                    </div>
-                                    <p style="font-size:12px;color:#666;font-style:italic;margin-top:5px;">
-                                        Note: Pet-friendly properties get $50.00 extra rent per month.
-                                    </p>
+                                <div class="col-md-6">
+                                    <label>Pets *</label>
+                                    <input type="text" class="form-control" placeholder="Pets" required>
                                 </div>
 
-                                <div class="col-12">
-                                    <label>Specify Restrictions (Pets) *</label>
-                                    <input type="text" class="form-control" placeholder="Specify Restrictions" required>
-                                </div>
-
-                                <!-- PARKING -->
-                                <div class="form-section-title">Parking Availability</div>
-
-                                <div class="col-12">
-                                    <div class="mt-2">
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" required> <label>Single Garage</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio"> <label>Double Garage</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio"> <label>Street Parking</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio"> <label>Covered Stall</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio"> <label>Under Ground</label></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <label>Any comments or information you'd like to share with us before we call you?</label>
-                                    <input type="text" class="form-control">
-                                </div>
-
-                                <div class="col-12">
-                                    <label>What date would you like to visit the property for an in-person tour? *</label>
+                                <!-- MOVE-IN DATE -->
+                                <div class="col-md-6">
+                                    <label>Desired Move-In Date *</label>
                                     <input type="date" class="form-control" required>
                                 </div>
 
-                                <div class="col-12">
-                                    <label>How did you hear about us? *</label>
-                                    <div class="mt-2">
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" required> <label>Facebook</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio"> <label>Google</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio"> <label>Website</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio"> <label>Instagram</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio"> <label>Friend Referral</label></div>
-                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio"> <label>Others</label></div>
-                                    </div>
+                                <!-- LEASE TERM -->
+                                <div class="col-md-6">
+                                    <label>Desired Lease Term *</label>
+                                    <input type="text" class="form-control"
+                                        placeholder="e.g., 6 months, 1 year, long-term" required>
                                 </div>
 
-                                <div class="text-center mt-5">
-                                    <button class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors" style="font-size:14px;">
+                                <!-- VEHICLES -->
+                                <div class="col-md-6">
+                                    <label>Number of Vehicles *</label>
+                                    <input type="number" class="form-control" placeholder="Number of Vehicles" required>
+                                </div>
+
+                                <!-- PROPERTY INTEREST -->
+                                <div class="col-md-6">
+                                    <label>Property You’re Interested In *</label>
+                                    <input type="text" class="form-control" placeholder="Address" required>
+                                </div>
+
+                                <!-- SUBMIT -->
+                                <div class="col-12 text-center mt-4">
+                                     <button class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors" style="font-size:14px;">
                                         Submit Request
                                     </button>
                                 </div>
@@ -379,7 +229,6 @@
             </div>
         </div>
     </section>
-
 
     <footer class="bg-gradient-to-b from-background to-muted border-top border-border">
 

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Deva rentals" />
+
+    <title>Deva Rentals | Find your best home</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+        /* Default transparent */
+        .navbar-scroll {
+            background-color: transparent;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* When scrolled */
+        .navbar-scroll.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+    <style>
+        .signature-wrapper {
+            position: relative;
+            border: 2px solid #9e9e9e;
+            background: #fff;
+            height: 220px;
+        }
+
+        .signature-wrapper canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .clear-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #000;
+            color: #fff;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 18px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .clear-btn:hover {
+            background: #dc3545;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav id="mainNavbar" class="position-fixed top-0 start-0 end-0 navbar-scroll bg-transparent"
+        style="transition: all 0.3s ease; z-index:1050;">
+
+        <div class="container-xl px-4">
+            <div class="d-flex align-items-center justify-content-between" style="height:80px;">
+
+                <!-- LEFT: Logo -->
+                <div class="d-flex align-items-center" style="width:140px;">
+                    <img src="assets/image/deva-logo.png" alt="Deva Rentals Logo"
+                        style="width:110px; height:110px; object-fit:contain;">
+                </div>
+
+                <!-- CENTER: Mobile CTA (ONLY MOBILE) -->
+                <button
+                    class="d-md-none h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors"
+                    style="font-size:12px;">
+                    View Properties
+                </button>
+
+                <!-- RIGHT: Hamburger (ONLY MOBILE) -->
+                <button id="mobileMenuToggle" class="btn d-md-none p-2 rounded-lg" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 12h16" />
+                        <path d="M4 18h16" />
+                        <path d="M4 6h16" />
+                    </svg>
+                </button>
+
+                <!-- DESKTOP MENU -->
+                <div class="d-none d-md-flex align-items-center gap-4">
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#about" class="text-muted-foreground hover:text-primary">About
+                            Us</a></button>
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#properties"
+                            class="text-muted-foreground hover:text-primary">Available
+                            Properties</a></button>
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#landlords"
+                            class="text-muted-foreground hover:text-primary">For Landlords</a></button>
+
+                    <button class="btn btn-link p-0 fw-medium text-decoration-none text-foreground"
+                        style="font-size:14px;"><a href="#tenants" class="text-muted-foreground hover:text-primary">For
+                            Tenants</a></button>
+
+                    <button
+                        class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors"
+                        style="font-size:14px;">
+                        View Properties
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="d-md-none position-absolute start-0 end-0 bg-white shadow border-top"
+            style="top:80px; display:none; z-index:1040;">
+
+            <div class="d-flex flex-column gap-3 px-3 py-4">
+
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#about"
+                        class="text-muted-foreground hover:text-primary">About Us</a></button>
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#properties"
+                        class="text-muted-foreground hover:text-primary">Available
+                        Properties</a></button>
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#landlords"
+                        class="text-muted-foreground hover:text-primary">For Landlords</a></button>
+                <button class="btn text-start fw-medium p-0" style="font-size:14px;"><a href="#tenants"
+                        class="text-muted-foreground hover:text-primary">For Tenants</a></button>
+    </nav>
+
+
+
+    <section class="relative d-flex align-items-center justify-content-center overflow-hidden pt-10"
+        style="min-height:400px;">
+
+        <!-- Background (UNCHANGED) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-muted via-background to-muted z-0"></div>
+
+        <!-- Floating blobs (UNCHANGED) -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float"
+            style="animation-delay:1s;"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 container-xl px-3 py-4">
+            <div class="text-center mx-auto" style="max-width:1140px;">
+
+                <!-- Badge -->
+                <div
+                    class="d-inline-flex align-items-center px-3 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm animate-fade-in">
+                    <span class="fw-medium text-primary" style="font-size:13px;">
+                        8+ Years of Excellence in Edmonton
+                    </span>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="fw-bold mt-3 animate-fade-in" style="font-size:clamp(2rem,5vw,3.5rem); line-height:1.2;">
+                    Rental Application
+                </h1>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="p-4 p-lg-5">
+
+                        <form>
+                            <div class="row g-3">
+
+                                <!-- TERMS -->
+                                <div class="col-12">
+                                    <h6>Your Personal Information</h6>
+                                    <p class="fw-semibold mb-1">Terms & Conditions</p>
+                                    <p>MaxWell Excel Realty (“The LANDLORD”) is committed to safeguarding personal
+                                        information entrusted to us.</p>
+                                    <p>We collect personal information for assessing applicant suitability.</p>
+                                    <p>Your completion of this application constitutes consent.</p>
+                                </div>
+
+                                <!-- PROPERTY INFO -->
+                                <div class="form-section-title">Property Information</div>
+
+                                <div class="col-md-6">
+                                    <label>Address of Property *</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Date Occupancy Desired *</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Adults *</label>
+                                    <input type="number" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Children *</label>
+                                    <input type="number" class="form-control" required>
+                                </div>
+
+                                <!-- PERSONAL INFO -->
+                                <div class="form-section-title">Personal Information</div>
+
+                                <div class="col-md-6">
+                                    <label>Name *</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Social Insurance Number</label>
+                                    <input type="text" class="form-control">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Current Address *</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Email Address *</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Phone 1 *</label>
+                                    <input type="tel" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Phone 2 *</label>
+                                    <input type="tel" class="form-control">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Date of Birth *</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Govt Issued Photo ID *</label>
+                                    <input type="file" class="form-control" required>
+                                </div>
+
+                                <!-- CO-APPLICANT -->
+                                <div class="form-section-title">Co-Applicant’s Personal Information</div>
+
+                                <div class="col-md-6"><label>Name</label><input type="text" class="form-control"></div>
+                                <div class="col-md-6"><label>Social Insurance Number</label><input type="text"
+                                        class="form-control"></div>
+                                <div class="col-md-6"><label>Current Address</label><input type="text"
+                                        class="form-control"></div>
+                                <div class="col-md-6"><label>Email Address</label><input type="email"
+                                        class="form-control"></div>
+                                <div class="col-md-6"><label>Phone 1</label><input type="tel" class="form-control">
+                                </div>
+                                <div class="col-md-6"><label>Phone 2</label><input type="tel" class="form-control">
+                                </div>
+                                <div class="col-md-6"><label>Date of Birth</label><input type="date"
+                                        class="form-control"></div>
+                                <div class="col-md-6"><label>Govt Issued Photo ID</label><input type="file"
+                                        class="form-control"></div>
+
+                                <!-- UNDER 18 -->
+                                <div class="form-section-title">Co-Applicant under 18</div>
+
+                                <div class="col-md-3"><label>Name 1</label><input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-3"><label>Name 2</label><input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-3"><label>Name 3</label><input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-3"><label>Name 4</label><input type="text" class="form-control">
+                                </div>
+
+                                <!-- PREVIOUS TENANCY -->
+                                <div class="form-section-title">Previous Tenancy</div>
+
+                                <div class="col-md-6"><label>Landlord's Name *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-md-6"><label>Landlord's Phone *</label><input type="tel"
+                                        class="form-control" required></div>
+                                <div class="col-12"><label>Present Address *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-md-6"><label>Time at this location *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-md-6"><label>Monthly Rent *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-12"><label>Reason for Leaving *</label><textarea class="form-control"
+                                        rows="3" required></textarea></div>
+
+                                <!-- EMPLOYMENT -->
+                                <div class="form-section-title">Employment Information</div>
+
+                                <div class="col-12">
+                                    <label>Status *</label><br>
+                                    <div class="form-check form-check-inline"><input type="radio" name="status"
+                                            class="form-check-input" required> <label>Full-Time</label></div>
+                                    <div class="form-check form-check-inline"><input type="radio" name="status"
+                                            class="form-check-input"> <label>Part-Time</label></div>
+                                    <div class="form-check form-check-inline"><input type="radio" name="status"
+                                            class="form-check-input"> <label>Student</label></div>
+                                    <div class="form-check form-check-inline"><input type="radio" name="status"
+                                            class="form-check-input"> <label>Unemployed</label></div>
+                                    <div class="form-check form-check-inline"><input type="radio" name="status"
+                                            class="form-check-input"> <label>Retired</label></div>
+                                </div>
+
+                                <div class="col-md-6"><label>Current Employer *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-md-6"><label>Address *</label><input type="text" class="form-control"
+                                        required></div>
+                                <div class="col-md-6"><label>Supervisor's Name *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-md-6"><label>Phone *</label><input type="tel" class="form-control"
+                                        required></div>
+                                <div class="col-md-6"><label>Length of Employment *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-md-6"><label>Monthly Wage *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-12"><label>Job Position *</label><input type="text" class="form-control"
+                                        required></div>
+                                <div class="col-12"><label>If you have other sources of income that you would like us to
+                                        consider, please list income, source and person *</label><textarea
+                                        class="form-control" rows="3" required></textarea></div>
+                                <div class="col-md-6">
+                                    <label>Upload Pictures *</label>
+                                    <input type="file" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Upload Pictures *</label>
+                                    <input type="file" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Upload Pictures</label>
+                                    <input type="file" class="form-control" required>
+                                </div>
+
+                                <!-- C0 - EMPLOYMENT -->
+                                <div class="form-section-title">Co-Applicant’s Employment Information</div>
+
+                                <div class="col-md-6"><label>Current Employer *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-md-6"><label>Address *</label><input type="text" class="form-control"
+                                        required></div>
+                                <div class="col-md-6"><label>Supervisor's Name *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-md-6"><label>Phone *</label><input type="tel" class="form-control"
+                                        required></div>
+                                <div class="col-md-6"><label>Length of Employment *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-md-6"><label>Monthly Wage *</label><input type="text"
+                                        class="form-control" required></div>
+                                <div class="col-12"><label>Job Position *</label><input type="text" class="form-control"
+                                        required></div>
+                                <div class="col-md-6">
+                                    <label>Upload Pictures *</label>
+                                    <input type="file" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Upload Pictures *</label>
+                                    <input type="file" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Upload Pictures</label>
+                                    <input type="file" class="form-control" required>
+                                </div>
+
+                                <!-- CREDIT -->
+                                <!-- CREDIT HISTORY DESCRIPTION -->
+                                <div class="form-section-title">Credit History Description</div>
+
+                                <!-- Bankruptcy -->
+                                <div class="col-12">
+                                    <label>Have you declared bankruptcy in the past seven (7) years? *</label>
+                                    <div class="mt-2">
+                                        <div class="form-check form-check-inline"><input class="form-check-input"
+                                                type="radio" name="ptype" required> <label>Yes</label></div>
+                                        <div class="form-check form-check-inline"><input class="form-check-input"
+                                                type="radio" name="ptype"> <label>No</label></div>
+                                    </div>
+                                </div>
+
+                                <!-- Evicted -->
+                                <div class="col-12">
+                                    <label>Have you declared bankruptcy in the past seven (7) years? *</label>
+                                    <div class="mt-2">
+                                        <div class="form-check form-check-inline"><input class="form-check-input"
+                                                type="radio" name="ptype" required> <label>Yes</label></div>
+                                        <div class="form-check form-check-inline"><input class="form-check-input"
+                                                type="radio" name="ptype"> <label>No</label></div>
+                                    </div>
+                                </div>
+
+                                <!-- Late Payments -->
+                                <div class="col-12">
+                                    <label>Have you declared bankruptcy in the past seven (7) years? *</label>
+                                    <div class="mt-2">
+                                        <div class="form-check form-check-inline"><input class="form-check-input"
+                                                type="radio" name="ptype" required> <label>Yes</label></div>
+                                        <div class="form-check form-check-inline"><input class="form-check-input"
+                                                type="radio" name="ptype"> <label>No</label></div>
+                                    </div>
+                                </div>
+
+                                <!-- Refused Rent -->
+                                <div class="col-12">
+                                    <label>Have you declared bankruptcy in the past seven (7) years? *</label>
+                                    <div class="mt-2">
+                                        <div class="form-check form-check-inline"><input class="form-check-input"
+                                                type="radio" name="ptype" required> <label>Yes</label></div>
+                                        <div class="form-check form-check-inline"><input class="form-check-input"
+                                                type="radio" name="ptype"> <label>No</label></div>
+                                    </div>
+                                </div>
+
+                                <!-- Explanation -->
+                                <div class="col-12">
+                                    <label class="form-label">
+                                        If you have answered YES to any of the above, please state your reasons and/or
+                                        circumstances
+                                    </label>
+                                    <textarea class="form-control" rows="4"
+                                        placeholder="If you have answered YES to any of the above, please state your reasons and/or circumstances"></textarea>
+                                </div>
+
+                                <!-- Credit Report Upload 1 -->
+                                <div class="col-6">
+                                    <label class="form-label">
+                                        Please upload if you have current credit report
+                                    </label>
+                                    <input type="file" class="form-control">
+                                </div>
+
+                                <!-- Credit Report Upload 2 -->
+                                <div class="col-6">
+                                    <label class="form-label">
+                                        Please upload if you have current credit report
+                                    </label>
+                                    <input type="file" class="form-control">
+                                </div>
+
+
+                                <!-- PETS -->
+                                <!-- ADDITIONAL INFORMATION -->
+                                <div class="form-section-title">Additional Information</div>
+
+                                <!-- Pets -->
+                                <div class="col-12">
+                                    <label>Do you wish to bring a pet(s) to the rental premises? *</label>
+                                    <div class="mt-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="pets" required>
+                                            <label class="form-check-label">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="pets">
+                                            <label class="form-check-label">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Describe Pets -->
+                                <div class="col-12">
+                                    <label>If yes, describe the pets:</label>
+                                    <textarea class="form-control" rows="4"></textarea>
+                                </div>
+
+                                <!-- Smoking -->
+                                <div class="col-12">
+                                    <label>Do you, or any proposed occupant, smoke? *</label>
+                                    <div class="mt-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="smoke" required>
+                                            <label class="form-check-label">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="smoke">
+                                            <label class="form-check-label">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Joint Credit Report -->
+                                <div class="col-12">
+                                    <label>If you are co-applicants, do you consent to a joint credit report? *</label>
+                                    <div class="mt-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="joint_credit" required>
+                                            <label class="form-check-label">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="joint_credit">
+                                            <label class="form-check-label">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Insurance Note -->
+                                <div class="col-12">
+                                    <label>
+                                        NOTE: Landlords are not responsible for tenants’ possessions. If accepted you
+                                        must carry tenant’s insurance covering your possessions and protecting you
+                                        against liability. I/We presently insure our belongings and for third party
+                                        liability *
+                                    </label>
+                                    <div class="mt-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="insurance" required>
+                                            <label class="form-check-label">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="insurance">
+                                            <label class="form-check-label">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Additional Comments -->
+                                <div class="col-12">
+                                    <label>Additional Comments by Applicants</label>
+                                    <textarea class="form-control" rows="5"
+                                        placeholder="Additional Comments by Applicants"></textarea>
+                                </div>
+
+
+                                <!-- EMERGENCY -->
+                                <div class="form-section-title">Emergency Contact</div>
+
+                                <div class="col-md-6"><label>Name of a person not residing with you *</label><input
+                                        type="text" class="form-control" required></div>
+                                <div class="col-md-6"><label>Address *</label><input type="text" class="form-control"
+                                        required></div>
+                                <div class="col-md-6"><label>Phone *</label><input type="tel" class="form-control"
+                                        required></div>
+                                <div class="col-md-6"><label>Relationship *</label><input type="text"
+                                        class="form-control" required></div>
+
+                                <!-- AGREEMENT -->
+                                <div class="form-section-title">Terms & Conditions</div>
+                                <div class="col-12">
+                                    <p>The Applicant and/or Co-Applicant acknowledges that pets, barbeques, waterbeds
+                                        and
+                                        aquariums are not permitted without the advance written permission of the
+                                        Landlord.
+
+                                        If the Landlord permits a pet, an additional Pet Damage Deposit of $100.00 will
+                                        be
+                                        paid to the Landlord. The Landlord will hold the Deposit(s) until the Tenancy
+                                        ends.
+
+                                        The Applicant(s) do(es) hereby state that the information contained herein is
+                                        true
+                                        and correct, and contain no misrepresentations. If misrepresentations are found
+                                        after a residential tenancy agreement is entered into with the Applicant and/or
+                                        Co-Applicant, the Landlord shall have the option to terminate the residential
+                                        tenancy agreement and seek all available remedies.
+
+                                        The Applicant(s) and/or Co-Applicant authorize the Landlord to obtain tenant
+                                        history, credit, personal and employment information from one or more consumer
+                                        reporting agencies, previous landlords, employers or previous employers and from
+                                        other sources of such information, to verify the information provided by the
+                                        Applicant[s] and/or Co-Applicant. The Applicant[s] and/or CoApplicant
+                                        authorize(s)
+                                        the reporting agencies, and any other person, including personnel from any
+                                        governmental ministry or agency, to disclose relevant information about the
+                                        Applicant[s] and/or Co Applicant to the Landlord. If the parties enter into a
+                                        Residential tenancy agreement, the Applicant[s] and/or Co-Applicant authorize
+                                        the
+                                        above information to be used and disclosed for responding to emergencies,
+                                        ensuring
+                                        the orderly management of the tenancy and complying with legal requirements.</p>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" required>
+                                        <label class="form-check-label">Agree with terms and conditions *</label>
+                                    </div>
+                                </div>
+
+                                <!-- SIGNATURE -->
+                                <!-- SIGNATURE SECTION -->
+                                <div class="form-section-title">Signatures</div>
+
+                                <div class="col-12">
+                                    <div class="row">
+                                        <!-- Applicant Signature -->
+                                        <div class="col-md-6">
+                                            <label class="fw-semibold">Signature <span
+                                                    class="text-danger">*</span></label>
+
+                                            <div class="signature-wrapper">
+                                                <canvas id="signatureApplicant"></canvas>
+                                                <button type="button" class="clear-btn" id="clearApplicant">✕</button>
+                                            </div>
+
+                                            <input type="hidden" name="applicant_signature" id="applicantSignatureData"
+                                                required>
+
+                                            <label class="mt-3">Legal Name <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Legal Name" required>
+                                        </div>
+
+                                        <!-- Co-Applicant Signature -->
+                                        <div class="col-md-6">
+                                            <label class="fw-semibold">Co-Applicant's Signature</label>
+
+                                            <div class="signature-wrapper">
+                                                <canvas id="signatureCoApplicant"></canvas>
+                                                <button type="button" class="clear-btn" id="clearCoApplicant">✕</button>
+                                            </div>
+
+                                            <input type="hidden" name="co_applicant_signature"
+                                                id="coApplicantSignatureData">
+
+                                            <label class="mt-3">Co-Applicant's Legal Name</label>
+                                            <input type="text" class="form-control"
+                                                placeholder="Co-Applicant's Legal Name">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SUBMIT -->
+                                <div class="text-center mt-5">
+                                     <button class="h-10 px-8 rounded-md bg-accent text-accent-foreground shadow-gold fw-semibold hover:bg-accent/90 transition-colors" style="font-size:14px;">
+                                        Submit Application
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-gradient-to-b from-background to-muted border-top border-border">
+
+        <div class="container-xl px-4 py-5">
+
+            <div class="row g-5">
+
+                <!-- Brand -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="d-flex flex-column gap-3">
+
+                        <div class="d-flex align-items-center" style="width:140px;">
+                            <img src="assets/image/deva-logo.png" alt="Deva Rentals Logo"
+                                style="width:110px; height:110px; object-fit:contain;">
+                        </div>
+
+                        <p class="text-muted-foreground small">
+                            Edmonton's trusted property management company for over 8 years.
+                            We maximize your investment and protect your peace of mind.
+                        </p>
+
+                        <div class="d-flex gap-3">
+                            <a href="#"
+                                class="rounded-circle bg-primary/10 hover:bg-primary/20 d-flex align-items-center justify-content-center transition-colors"
+                                style="width:40px; height:40px;">
+                                <!-- Facebook -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                </svg>
+                            </a>
+
+                            <a href="#"
+                                class="rounded-circle bg-primary/10 hover:bg-primary/20 d-flex align-items-center justify-content-center transition-colors"
+                                style="width:40px; height:40px;">
+                                <!-- Instagram -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                            </a>
+
+                            <a href="#"
+                                class="rounded-circle bg-primary/10 hover:bg-primary/20 d-flex align-items-center justify-content-center transition-colors"
+                                style="width:40px; height:40px;">
+                                <!-- LinkedIn -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                                    stroke="currentColor" stroke-width="2" class="text-primary">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect x="2" y="9" width="4" height="12" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h4 class="fw-semibold text-foreground mb-3">Quick Links</h4>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#about" class="text-muted-foreground hover:text-primary">About Us</a></li>
+                        <li><a href="#properties" class="text-muted-foreground hover:text-primary">Available
+                                Properties</a></li>
+                        <li><a href="#landlords" class="text-muted-foreground hover:text-primary">For Landlords</a></li>
+                        <li><a href="#tenants" class="text-muted-foreground hover:text-primary">For Tenants</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h4 class="fw-semibold text-foreground mb-3">Our Services</h4>
+                    <ul class="list-unstyled text-muted-foreground d-flex flex-column gap-2">
+                        <li>Tenant Screening</li>
+                        <li>Rent Collection</li>
+                        <li>Property Maintenance</li>
+                        <li>Legal Compliance</li>
+                        <li>Marketing & Leasing</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h4 class="fw-semibold text-foreground mb-3">Contact Us</h4>
+                    <ul class="list-unstyled text-muted-foreground d-flex flex-column gap-2">
+                        <li class="d-flex align-items-start gap-2">
+                            <span class="text-primary">📧</span> info@devarentals.com
+                        </li>
+                        <li class="d-flex align-items-start gap-2">
+                            <span class="text-primary">📞</span> (780) 555-0123
+                        </li>
+                        <li class="d-flex align-items-start gap-2">
+                            <span class="text-primary">📍</span> Edmonton, Alberta, Canada
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-top border-border">
+            <div class="container-xl px-4 py-3">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                    <p class="text-muted-foreground small mb-0">
+                        © 2026 Deva Rentals. All rights reserved.
+                    </p>
+                    <div class="d-flex gap-4">
+                        <a href="#" class="text-muted-foreground hover:text-primary small">Privacy Policy</a>
+                        <a href="#" class="text-muted-foreground hover:text-primary small">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar-scroll");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+    <script>
+        document.getElementById("mobileMenuToggle").addEventListener("click", function () {
+            const menu = document.getElementById("mobileMenu");
+            menu.style.display = menu.style.display === "none" || menu.style.display === ""
+                ? "block"
+                : "none";
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.5/dist/signature_pad.umd.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            function initSignature(canvasId, clearBtnId, hiddenInputId) {
+                const canvas = document.getElementById(canvasId);
+                const signaturePad = new SignaturePad(canvas);
+
+                function resizeCanvas() {
+                    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+                    canvas.width = canvas.offsetWidth * ratio;
+                    canvas.height = canvas.offsetHeight * ratio;
+                    canvas.getContext("2d").scale(ratio, ratio);
+                    signaturePad.clear();
+                }
+
+                resizeCanvas();
+                window.addEventListener("resize", resizeCanvas);
+
+                document.getElementById(clearBtnId).addEventListener("click", function () {
+                    signaturePad.clear();
+                    document.getElementById(hiddenInputId).value = "";
+                });
+
+                return signaturePad;
+            }
+
+            const applicantPad = initSignature(
+                "signatureApplicant",
+                "clearApplicant",
+                "applicantSignatureData"
+            );
+
+            const coApplicantPad = initSignature(
+                "signatureCoApplicant",
+                "clearCoApplicant",
+                "coApplicantSignatureData"
+            );
+
+            document.querySelector("form").addEventListener("submit", function (e) {
+                if (applicantPad.isEmpty()) {
+                    alert("Applicant signature is required.");
+                    e.preventDefault();
+                    return;
+                }
+
+                document.getElementById("applicantSignatureData").value =
+                    applicantPad.toDataURL();
+
+                if (!coApplicantPad.isEmpty()) {
+                    document.getElementById("coApplicantSignatureData").value =
+                        coApplicantPad.toDataURL();
+                }
+            });
+        });
+    </script>
+
+</body>
